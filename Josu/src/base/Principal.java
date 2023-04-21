@@ -1,7 +1,11 @@
 package base;
 
 import java.util.Scanner;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class Principal {
 	private static final Logger LOGGER = Logger.getLogger(Principal.class.getName());
@@ -13,7 +17,16 @@ public class Principal {
 	private static boolean compuertasVerificadas = false;
 
 	public static void main(String[] args) {
+		Handler fileHandler = null;
 
+		try {
+
+			fileHandler = new FileHandler("./selecciones.log", true);
+
+			LOGGER.addHandler(fileHandler);
+			fileHandler.setLevel(Level.FINE);
+			LOGGER.setLevel(Level.FINE);
+			
 		System.out.println(
 				"Este programa lee el nivel de agua de una presa y permite abrir compuertas si tenemos permiso (el nivel es superior a 50) y las compuertas est�n verificadas.");
 
@@ -21,6 +34,11 @@ public class Principal {
 
 		mostrarMenu(nivel);
 
+		} catch (Exception exception) {
+			LOGGER.log(Level.SEVERE, "Ocurrió una Excepcion.", exception);
+
+	
+		}
 	}
 
 	private static void mostrarMenu(int nivel) {
@@ -40,6 +58,7 @@ public class Principal {
 			System.out.println();
 			System.out.print("Introduce opci�n: ");
 			opcion = teclado.nextInt();
+			LOGGER.log(Level.FINE, "El usuario a seleccionado: " + opcion);
 			switch (opcion) {
 			case 1:
 				nivel = leerNivelAgua();
@@ -87,8 +106,13 @@ public class Principal {
 			return false;
 		}
 	}
-
-	static boolean solicitarPermiso(int nivel) {
+/**
+ * Si el nivel del agua es mayor que 50 concede el permiso sino no
+ * @author josu
+ * @param nivel
+ * @return boolean
+ */
+	public static boolean solicitarPermiso(int nivel) {
 		if (nivel > 50) {
 			return true;
 		} else {

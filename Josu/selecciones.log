@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-04-21T12:46:33.118789300Z</date>
+  <millis>1682081193118</millis>
+  <nanos>789300</nanos>
+  <sequence>0</sequence>
+  <logger>base.Principal</logger>
+  <level>FINE</level>
+  <class>base.Principal</class>
+  <method>main</method>
+  <thread>1</thread>
+  <message>El usuario a seleccionado: </message>
+</record>
+<record>
+  <date>2023-04-21T12:46:34.974582800Z</date>
+  <millis>1682081194974</millis>
+  <nanos>582800</nanos>
+  <sequence>1</sequence>
+  <logger>base.Principal</logger>
+  <level>FINE</level>
+  <class>base.Principal</class>
+  <method>mostrarMenu</method>
+  <thread>1</thread>
+  <message>El usuario a seleccionado: 3</message>
+</record>
+<record>
+  <date>2023-04-21T12:46:35.471442200Z</date>
+  <millis>1682081195471</millis>
+  <nanos>442200</nanos>
+  <sequence>2</sequence>
+  <logger>base.Principal</logger>
+  <level>FINE</level>
+  <class>base.Principal</class>
+  <method>mostrarMenu</method>
+  <thread>1</thread>
+  <message>El usuario a seleccionado: 5</message>
+</record>
+</log>
